@@ -1,0 +1,142 @@
+[
+  {
+    "symbol": "RELIANCE",
+    "companyName": "Reliance Industries Limited",
+    "sector": "Energy",
+    "currentPrice": 1419.1,
+    "verified": true
+  },
+  {
+    "symbol": "TCS",
+    "companyName": "Tata Consultancy Services Limited",
+    "sector": "IT",
+    "currentPrice": 2685,
+    "verified": true
+  },
+  {
+    "symbol": "INFY",
+    "companyName": "Infosys Limited",
+    "sector": "IT",
+    "currentPrice": 1353,
+    "verified": true
+  },
+  {
+    "symbol": "WIPRO",
+    "companyName": "Wipro Limited",
+    "sector": "IT",
+    "currentPrice": 210.03,
+    "verified": true
+  },
+  {
+    "symbol": "ITC",
+    "companyName": "ITC Limited",
+    "sector": "FMCG",
+    "currentPrice": 327.2,
+    "verified": true
+  },
+  {
+    "symbol": "SBIN",
+    "companyName": "State Bank of India",
+    "sector": "Banking",
+    "currentPrice": 1216.2,
+    "verified": true
+  },
+  {
+    "symbol": "HDFC",
+    "companyName": "HDFC Bank Limited",
+    "sector": "Banking",
+    "currentPrice": 0,
+    "verified": true
+  },
+  {
+    "symbol": "MARUTI",
+    "companyName": "Maruti Suzuki India Limited",
+    "sector": "Automobiles",
+    "currentPrice": 15009,
+    "verified": true
+  },
+  {
+    "symbol": "BAJAJ-AUTO",
+    "companyName": "Bajaj Auto Limited",
+    "sector": "Automobiles",
+    "currentPrice": 9812,
+    "verified": true
+  },
+  {
+    "symbol": "BHARTIARTL",
+    "companyName": "Bharti Airtel Limited",
+    "sector": "Telecom",
+    "currentPrice": 1977.8,
+    "verified": true
+  },
+  {
+    "symbol": "JSWSTEEL",
+    "companyName": "JSW Steel Limited",
+    "sector": "Steel",
+    "currentPrice": 1232,
+    "verified": true
+  },
+  {
+    "symbol": "TATASTEEL",
+    "companyName": "Tata Steel Limited",
+    "sector": "Steel",
+    "currentPrice": 208.21,
+    "verified": true
+  },
+  {
+    "symbol": "SUNPHARMA",
+    "companyName": "Sun Pharmaceutical Industries Limited",
+    "sector": "Pharma",
+    "currentPrice": 1724,
+    "verified": true
+  },
+  {
+    "symbol": "ULTRACEMCO",
+    "companyName": "UltraTech Cement Limited",
+    "sector": "Cement",
+    "currentPrice": 12748,
+    "verified": true
+  },
+  {
+    "symbol": "ADANIGREEN",
+    "companyName": "Adani Green Energy Limited",
+    "sector": "Energy",
+    "currentPrice": 967.2,
+    "verified": true
+  },
+  {
+    "symbol": "ONGC",
+    "companyName": "Oil and Natural Gas Corporation Limited",
+    "sector": "Energy",
+    "currentPrice": 278.25,
+    "verified": true
+  },
+  {
+    "symbol": "POWERGRID",
+    "companyName": "Power Grid Corporation of India Limited",
+    "sector": "Power",
+    "currentPrice": 299,
+    "verified": true
+  },
+  {
+    "symbol": "LT",
+    "companyName": "Larsen & Toubro Limited",
+    "sector": "Engineering",
+    "currentPrice": 4380.1,
+    "verified": true
+  },
+  {
+    "symbol": "NESTLEIND",
+    "companyName": "Nestle India Limited",
+    "sector": "FMCG",
+    "currentPrice": 1295.5,
+    "verified": true
+  },
+  {
+    "symbol": "BRITANNIA",
+    "companyName": "Britannia Industries Limited",
+    "sector": "FMCG",
+    "currentPrice": 6088,
+    "verified": true
+  }
+]

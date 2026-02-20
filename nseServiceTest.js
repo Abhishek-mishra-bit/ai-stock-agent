@@ -4,7 +4,7 @@ async function runtest() {
   const nseService = new NSEService();
   try {
     console.log("Fetching stock quote for ITC...");
-    const stockQuote = await nseService.getStockQuote("ITC");
+    const stockQuote = await nseService.getStockQuote("appl");
     console.log("Stock Quote for ITC: ", stockQuote);
 
     console.log("\n Fetching market indices...");
@@ -12,7 +12,7 @@ async function runtest() {
     console.log("Market Indices: ", marketIndices);
 
     console.log("\n Fetching historical data for ITC...");
-    const history = await nseService.getHistoricalData("ITC", 30);
+    const history = await nseService.getHistoricalData("appl", 30);
     console.log("Historical Data for ITC: ", history);
   } catch (err) {
     console.error("Error during test: ", err);

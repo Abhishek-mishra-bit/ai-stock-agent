@@ -1,13 +1,12 @@
 require("dotenv").config();
 const { NSELive, NSEArchive } = require("nse-api-package");
 const axios = require("axios");
-const { default: YahooFinance } = require("yahoo-finance2");
+const stockHistory = require("@imdr/nse-stock-history");
 
 class NSEService {
   constructor() {
     this.nseLive = new NSELive();
     this.nseArchive = new NSEArchive();
-    this.yahooFinance = new YahooFinance();
   }
 
   //getting real time stock quote or data
@@ -55,29 +54,42 @@ class NSEService {
     }
   }
 
-  async getHistoricalData(symbol = "ITC", days = 30) {
+  async getHistoricalData(symbol = "ITC", tradingDays = 30) {
     try {
       const endDate = new Date();
       const startDate = new Date();
-      startDate.setDate(endDate.getDate() - days);
 
-      // Add .NS suffix for Indian stocks if not already present
-      const yahooSymbol = symbol.includes('.') ? symbol : `${symbol}.NS`;
-      
-      const queryOptions = { period1: startDate, period2: endDate };
-      const result = await this.yahooFinance.historical(yahooSymbol, queryOptions);
-      
-      console.log("Raw historical data for symbol: ", symbol, result);
-      
-      // Format the response
-      return result.map((entry) => ({
-        date: entry.date,
-        open: entry.open,
-        high: entry.high,
-        low: entry.low,
-        close: entry.close,
-        volume: entry.volume,
+      // Multiply by 2 to account for weekends (5 trading days per 7 calendar days)
+      // Also add extra for Indian holidays
+      const calendarDaysNeeded = Math.ceil(tradingDays * 2.2);
+      startDate.setDate(endDate.getDate() - calendarDaysNeeded);
+
+      // No .NS suffix needed - it's built for NSE
+      const options = {
+        symbol: symbol,
+        resolution: "1d", // Daily data
+        startTimestamp: startDate.getTime(), // Timestamp in milliseconds
+        endTimestamp: endDate.getTime(),
+        onlyClose: false, // Get full OHLCV
+      };
+
+      const data = await stockHistory(options);
+
+      // Format the response to match your existing structure
+      // The package returns arrays: { t: timestamps, o: opens, h: highs, l: lows, c: closes, v: volumes }
+      const formattedData = data.t.map((timestamp, index) => ({
+        date: new Date(timestamp), // Convert timestamp to Date object
+        open: data.o?.[index],
+        high: data.h?.[index],
+        low: data.l?.[index],
+        close: data.c[index],
+        volume: data.v?.[index],
       }));
+
+      console.log(
+        `Requested ${tradingDays} trading days (${calendarDaysNeeded} calendar days), got ${formattedData.length} trading days`,
+      );
+      return formattedData;
     } catch (error) {
       console.log("Error fetching historical data for symbol: ", symbol, error);
       throw new Error("Failed to fetch historical data");

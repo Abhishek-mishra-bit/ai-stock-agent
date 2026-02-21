@@ -65,14 +65,26 @@ class TechnicalAnalysisService {
 
     // 3. Trend Analysis
     const lastSMA50 = sma50[sma50.length - 1];
-    const lastSMA200 = sma200[sma200.length - 1];
+    const lastSMA200 =
+      sma200 && sma200.length > 0 ? sma200[sma200.length - 1] : null;
 
-    if (currentPrice > lastSMA50 && currentPrice > lastSMA200) {
-      bullishScore += 25;
-      reasons.push("Above Golden Cross/Trend");
-    } else if (currentPrice < lastSMA50 && currentPrice < lastSMA200) {
-      bearishScore += 25;
-      reasons.push("Below Death Cross/Trend");
+    if (lastSMA200) {
+      if (currentPrice > lastSMA50 && currentPrice > lastSMA200) {
+        bullishScore += 25;
+        reasons.push("Above Golden Cross/Trend");
+      } else if (currentPrice < lastSMA50 && currentPrice < lastSMA200) {
+        bearishScore += 25;
+        reasons.push("Below Death Cross/Trend");
+      }
+    } else {
+      // If SMA200 not available, only check SMA50
+      if (currentPrice > lastSMA50) {
+        bullishScore += 15;
+        reasons.push("Above 50-day MA");
+      } else {
+        bearishScore += 15;
+        reasons.push("Below 50-day MA");
+      }
     }
 
     // Determine Final Signal

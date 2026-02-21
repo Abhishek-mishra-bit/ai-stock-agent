@@ -6,13 +6,15 @@ async function testTechnicalIndicators() {
   const technicalService = new TechnicalAnalysisService();
 
   try {
+
+    const stockName = "ADANIPOWER";
     console.log("=== Testing Technical Indicators ===\n");
 
     // Get historical data for last 200 trading days (need ~440 calendar days)
     console.log(
-      "1. Fetching historical data for RELIANCE (200 trading days)...",
+      `1. Fetching historical data for ${stockName} (200 trading days)...`,
     );
-    const historicalData = await nseService.getHistoricalData("INFY", 200);
+    const historicalData = await nseService.getHistoricalData(stockName, 200);
     console.log(`✓ Got ${historicalData.length} trading days of data\n`);
 
     // Extract closing prices

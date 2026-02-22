@@ -1,6 +1,6 @@
 const NSEService = require("./src/services/nseService");
 const TechnicalAnalysisService = require("./src/services/technicalService");
-const AIAnalysisService = require("./src/services/aiServices_improved");
+const AIAnalysisService = require("./src/services/aiServices");
 
 async function testCompleteAnalysis() {
   console.log("=".repeat(70));
@@ -12,7 +12,7 @@ async function testCompleteAnalysis() {
   const aiService = new AIAnalysisService();
 
   try {
-    const symbol = "ITC";
+    const symbol = "SAIL";
     console.log(`\n📊 Analyzing: ${symbol}\n`);
 
     // STEP 1: Get Real-time Stock Quote
@@ -77,6 +77,8 @@ async function testCompleteAnalysis() {
 
     console.log("\n✅ AI ANALYSIS COMPLETE:\n");
     console.log("=".repeat(70));
+    console.log("STOCK SUMMARY:", aiAnalysis);
+    console.log("\nDETAILED ANALYSIS:\n");
     console.log(aiAnalysis.analysis);
     console.log("=".repeat(70));
 
